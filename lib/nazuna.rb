@@ -8,11 +8,12 @@ require 'sidekiq'
 # On the nazuna_ruby directory run:
 #     bundle exec sidekiq -r ./lib/nazuna.rb
 
+# Class that call the Nazuna Java class
 class Nazuna
   include Sidekiq::Worker
 
   def perform
-    puts "Holi!"
+    puts 'Holi!'
     # Java::Nazuna.spy()
   end
 end

@@ -4,13 +4,10 @@ require_relative 'lib/nazuna'
 
 get '/' do
   begin
-    Nazuna.perform_async()
-
-  rescue Exception => exception
-    return { status: 500, message: exception.message }.to_json
-
-  ensure
-    return { status: 200, message: 'Job done!' }.to_json
+    Nazuna.perform_async
+  rescue StandardError => error
+    return { status: 500, message: error.message }.to_json
   end
-end
 
+  { status: 200, message: 'Job done!' }.to_json
+end
