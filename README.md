@@ -19,3 +19,13 @@ This project was created to try out JRuby
 * Run the API
 
         ruby nazuna.rb
+
+* Start Sidekiq workers
+
+Make sure you've got Redis running on background
+
+        redis-server
+        
+Now start the workers
+
+        bundle exec sidekiq -r ./lib/nazuna.rb        
