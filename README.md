@@ -1,4 +1,4 @@
-# Nazuna, the nany spy
+# Nazuna, the nanny spy
 
 This project was created to try out JRuby
 
