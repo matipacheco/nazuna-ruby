@@ -14,8 +14,7 @@ This project was created to try out JRuby
         rvm gemset create nazuna
         rvm gemset use nazuna
         
-        gem install sinatra
-        gem install sidekiq
+        bundle install
 
 * Run the API
 
