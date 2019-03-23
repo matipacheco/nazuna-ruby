@@ -1,6 +1,6 @@
 # Nazuna, the nanny spy
 
-This project was created to try out JRuby
+~This project was created to try out JRuby, but things change...~
 
 ## Setup
 
