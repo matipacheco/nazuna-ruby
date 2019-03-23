@@ -1,12 +1,26 @@
-require 'sidekiq'
-require ENV['NAZUNA_JAR_PATH']
+require 'date'
+require 'twilio-ruby'
 
-# Class that call the Nazuna Java class,
-# and enqueues its work using Sidekiq.
 class Nazuna
-  include Sidekiq::Worker
+  def initialize
+    @account_sid = ENV['TWILLIO_ACCOUNT_SID']
+    @auth_token  = ENV['TWILLIO_AUTH_TOKEN']
+    @client      = Twilio::REST::Client.new(@account_sid, @auth_token)
+  end
 
-  def perform
-    puts Java::Nazuna.spy
+  def notify
+    begin
+      message = @client.messages.create(
+          body: "The bird is in the nest! \n *" + Time.now.strftime('%H:%m') + "*",
+          from: 'whatsapp:' + ENV['TWILIO_PHONE_NUMBER'],
+          to:   'whatsapp:' + ENV['MY_PHONE_NUMBER']
+      )
+
+      return message.sid
+
+    rescue
+      raise 'Twilio was unable to send the message... stupid Twilio'
+
+    end
   end
 end
