@@ -1,3 +1,4 @@
+require 'pry'
 require 'date'
 require 'twilio-ruby'
 
@@ -10,13 +11,12 @@ class Nazuna
 
   def notify
     begin
-      message = @client.messages.create(
-          body: "The bird is in the nest! \n *" + Time.now.strftime('%H:%m') + "*",
-          from: 'whatsapp:' + ENV['TWILIO_PHONE_NUMBER'],
-          to:   'whatsapp:' + ENV['MY_PHONE_NUMBER']
+      binding.pry
+      m=@client.messages.create(
+        body: "The bird is in the nest! \n *" + Time.now.strftime('%H:%m') + "*",
+        from: 'whatsapp:' + ENV['TWILIO_PHONE_NUMBER'],
+        to:   'whatsapp:' + ENV['MY_PHONE_NUMBER']
       )
-
-      return message.sid
 
     rescue
       raise 'Twilio was unable to send the message... stupid Twilio'
