@@ -4,13 +4,12 @@ This project was created to try out JRuby
 
 ## Setup
 
-* JRuby version:
+* Ruby version:
 
-        9.2.0.0
+        2.5.1
 
 * System dependencies:
         
-        rvm use jruby
         rvm gemset create nazuna
         rvm gemset use nazuna
         
@@ -18,7 +17,7 @@ This project was created to try out JRuby
 
 * Run the API
 
-        ruby nazuna.rb
+        ruby app.rb
 
 * Start Sidekiq workers
 
