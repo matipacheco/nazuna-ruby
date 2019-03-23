@@ -27,4 +27,4 @@ Make sure you've got Redis running on background
         
 Now start the workers
 
-        bundle exec sidekiq -r ./lib/nazuna.rb        
+        bundle exec sidekiq -r ./lib/nazuna_async.rb
