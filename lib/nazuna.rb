@@ -5,10 +5,7 @@ require 'twilio-ruby'
 class Nazuna
   def self.notify
     begin
-      account_sid = ENV['TWILLIO_ACCOUNT_SID']
-      auth_token  = ENV['TWILLIO_AUTH_TOKEN']
-      client      = Twilio::REST::Client.new(account_sid, auth_token)
-
+      client = Twilio::REST::Client.new(ENV['TWILLIO_ACCOUNT_SID'], ENV['TWILLIO_AUTH_TOKEN'])
       client.messages.create(
         body: 'Your ' + '🦅' + ' code is ' + Time.now.strftime('%H:%M'),
         from: 'whatsapp:' + ENV['TWILIO_PHONE_NUMBER'],
