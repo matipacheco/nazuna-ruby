@@ -1,5 +1,6 @@
 require 'pry'
 require 'sinatra'
+require_relative 'lib/nazuna'
 # require_relative 'lib/nazuna_async'
 
 post '/notify' do
